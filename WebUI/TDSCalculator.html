@@ -1,0 +1,86 @@
+<!Doctype HTML>
+
+<!--Head Section-->
+<head>
+<title>Employee TDS App</title>
+</head>
+
+<!--Body Section-->
+<body>
+<header>
+<center>
+<h1>TDS CALCULATOR FORM</h1>
+</center>
+</header>
+
+<br/><br/>
+<center>
+<div id="TDSSlab">
+<table border="1">
+<caption>TDS SLAB</caption>
+
+<tr>
+<th>Salary Range</th>
+<th>Tax Info</th>
+</tr>
+
+<tr>
+<td>Salary<=300000</td>
+<td>Nil</td>
+</tr>
+
+<tr>
+<td>Salary>300000 and <=1000000</td>
+<td>12.5%</td>
+</tr>
+
+<tr>
+<td>Salary>1000000</td>
+<td>15%</td>
+</tr>
+
+<tr>
+<td colspan="2">Tax rate subject to changes by Goverment</td>
+</tr>
+</table>
+</div>
+<br/><br/>
+
+<form id="TdsForm">
+
+<fieldset>
+<legend>TDS Calculation</legend>
+<label for="txtEmployeeName">Enter Username:</label><br>
+<input type="text" id="txtEmployeeName" name="txtEmployeeName" placeholder="Name Input" required/>
+<br/><br/>
+<label for="txtSalary">Enter Salary:</label><br>
+<input type="text" id="txtSalary" name="txtSalary" placeholder="Salary Input" required/>
+<br/><br/>
+
+<label for="ddlEmployeeType">Enter Salary Type:</label><br>
+<select id="ddlEmployeeType" name="ddlEmployeeType">
+<option value="Select">Select....</option>
+<option value="Manager">Manager</option>
+<option value="Consultant">Consultant<option>
+</select>
+<br/><br/>
+
+<label for="radioGender">Enter Gender Type:</label><br>
+Male:<input type="radio" id="Male" name="radioGender" value="Male"/> &nbsp;&nbsp;&nbsp;&nbsp;
+Female:<input type="radio" id="Female" name="radioGender" value="Female"/>
+<br/><br/>
+
+<input type="submit" id=btnSubmit" name="btnSubmit" value="Calculate" title="Click Button"/>
+<fieldset>
+</form>
+
+</center>
+
+<footer>
+<center>
+<h3>Copyright &copy; Cognizant 2020</h3>
+</center>
+</footer>
+
+</body>
+</html>
