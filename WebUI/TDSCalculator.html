@@ -3,6 +3,25 @@
 <!--Head Section-->
 <head>
 <title>Employee TDS App</title>
+<link rel="stylesheet" type="text/css" href="../WebUI/WebStyle.css"/>
+
+<!--Internal CSS-->
+<style type="text/css">
+label
+{
+color: red;
+}
+
+.txtBackGroundColor
+{
+background-color:yellow;
+}
+
+#tdsGov
+{
+color:red;
+}
+</style>
 </head>
 
 <!--Body Section-->
@@ -19,28 +38,30 @@
 <table border="1">
 <caption>TDS SLAB</caption>
 
-<tr>
+<tr style="background-color:black;color:white;">
 <th>Salary Range</th>
 <th>Tax Info</th>
 </tr>
 
-<tr>
+<tr style="background-color:lightgreen;">
 <td>Salary<=300000</td>
 <td>Nil</td>
 </tr>
 
-<tr>
+<tr style="background-color:lightblue;">
 <td>Salary>300000 and <=1000000</td>
 <td>12.5%</td>
 </tr>
 
-<tr>
+<tr style="background-color:lightgreen;">
 <td>Salary>1000000</td>
 <td>15%</td>
 </tr>
 
-<tr>
-<td colspan="2">Tax rate subject to changes by Goverment</td>
+<tr style="background-color:lightblue;">
+<td colspan="2">
+<b id="tdsGov">Tax rate subject to changes by Goverment</b>
+</td>
 </tr>
 </table>
 </div>
@@ -51,17 +72,19 @@
 <fieldset>
 <legend>TDS Calculation</legend>
 <label for="txtEmployeeName">Enter Username:</label><br>
-<input type="text" id="txtEmployeeName" name="txtEmployeeName" placeholder="Name Input" required/>
+<input type="text" id="txtEmployeeName" name="txtEmployeeName" placeholder="Name Input" 
+required class="txtBackGroundColor"/>
 <br/><br/>
 <label for="txtSalary">Enter Salary:</label><br>
-<input type="text" id="txtSalary" name="txtSalary" placeholder="Salary Input" required/>
+<input type="text" id="txtSalary" name="txtSalary" placeholder="Salary Input" 
+required class="txtBackGroundColor"/>
 <br/><br/>
 
 <label for="ddlEmployeeType">Enter Salary Type:</label><br>
 <select id="ddlEmployeeType" name="ddlEmployeeType">
-<option value="Select">Select....</option>
-<option value="Manager">Manager</option>
-<option value="Consultant">Consultant<option>
+<option value="Select" style="background-color:lightblue;">Select....</option>
+<option value="Manager" style="background-color:lightgreen;">Manager</option>
+<option value="Consultant" style="background-color:lightblue;">Consultant<option>
 </select>
 <br/><br/>
 
@@ -70,7 +93,8 @@ Male:<input type="radio" id="Male" name="radioGender" value="Male"/> &nbsp;&nbsp
 Female:<input type="radio" id="Female" name="radioGender" value="Female"/>
 <br/><br/>
 
-<input type="submit" id=btnSubmit" name="btnSubmit" value="Calculate" title="Click Button"/>
+<input type="submit" id=btnSubmit" name="btnSubmit" value="Calculate" title="Click Button" 
+class="txtBackGroundColor"/>
 <fieldset>
 </form>
 

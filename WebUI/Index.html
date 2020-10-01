@@ -3,6 +3,34 @@
 <!--Head Section-->
 <head>
 <title>Employee TDS App</title>
+<!--Apply External CSS-->
+<link rel="stylesheet" type="text/css" href="../WebUI/WebStyle.css"/>
+
+<!--Internal CSS-->
+<style>
+.divStyle
+{
+width:500px;
+height:350px;
+background-color:lightgray;
+border:5px solid red;
+}
+
+.anchor
+{
+color:blue;
+font-size:Medium;
+background-color:white;
+}
+
+/* Apply CSS Pseudo Class Hover to change style of hyperlink */
+.anchor:hover
+{
+color:red;
+font-size:Larger;
+background-color:yellow;
+}
+</style>
 </head>
 
 <!--Body Section-->
@@ -10,13 +38,17 @@
 <header>
 <center>
 <h1>Employee Home</h1>
+<br/>
+<a href="https://www.incometaxindiaefiling.gov.in" class="anchor">
+To Know more About Tax..Click Here
+<a>
 <center>
 </header>
 <hr/>
 
 <br/>
 <center>
-<div id="SiteInfo">
+<div id="SiteInfo" class="divStyle">
 <h2>Welcome to Employee TDS Calculator Portal</h2>
 <br/>
 <img src="../WebUI/tdsDeduction.jpg" width="200" height="100"/>
