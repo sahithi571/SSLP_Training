@@ -1,0 +1,29 @@
+/* Case statement in MySql */
+select * from employee;
+
+/* Display the employee name, salary and salary comment according to below rules:
+if salary <30000 then salary_comment is 'Low Salary'
+if salary>=30000 and <60000 then salary_comment is 'Medium Salary'
+if salary>=60000 then salary_comment is 'High Salary'
+Use alias salary_comment to display records */
+select employeeName,employeeSalary,
+case 
+when employeeSalary<30000 then 'Low Salary'
+when employeeSalary>=30000 and employeeSalary<60000 then 'Medium Salary'
+when employeeSalary>=60000 then 'High Salary'
+end as salary_comment from employee;
+
+select * from batch;
+/* Display the batch owner name, number of batches each batch owner is handling [use alias count_atches] and also a
+utlization record where the utlization will be created according to the below rules:
+if the count of batch for a batch owner is <2 then ulization output is 'Under Utilizied'
+if the count of batch for a batch owner is >=2 then utilization output is 'Properly Utilized'.
+Store the utlization records under a column alias called coach_utilization */
+select batch_owner,count(batch_owner) as count_batches,
+case
+when count(batch_owner)<2 then 'Under Utilized'
+else 'Properly Utilized'
+end as coach_utilization
+from batch group by batch_owner;
+
+
