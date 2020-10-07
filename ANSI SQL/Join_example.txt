@@ -1,0 +1,49 @@
+select * from employee;
+select * from department;
+select * from trainee;
+
+select * from salaryTransaction;
+select * from department;
+
+insert into employee values
+(1007,'Venkat',null,3000);
+
+/* Display the DepartmentId, DepartmentName and EmployeeNames for all departments which have employees*/
+/* Inner Join */
+select d.Id,d.departmentName,e.employeeName
+from department d inner join employee e
+on d.id=e.departmentId;
+
+/* Display all departments and employees who are matched to departments [If a department is not having employee
+display employee side as null] */
+/* Left Join */
+select * from department d left join employee e on d.id=e.departmentId;
+
+/* Display matching departments and all employees information [If the employee does not match with department
+display department side as null */
+/* Right Join */
+select * from department d right join employee e on d.id=e.departmentId;
+
+/* Display the name and id of trainees who are also CR of the class */
+select distinct t1.trainee_id,t1.trainee_name from 
+trainee t1 join trainee t2
+on t1.trainee_id=t2.poc;
+
+/* Display the department id ,department name and bacnk name whio have made transaction but not using hdfc bank */
+select d.id,d.departmentName,s.bankName
+from department d inner join salaryTransaction s
+on d.id=s.departmentId where s.bankName not in(select bankName from salaryTransaction
+where bankName IN ('HDFC'));
+
+/* Display the department name and total salary paid by department to all employees. Display the department if the 
+total salary is the higest */
+select d.departmentName,sum(e.employeeSalary) as DepartmentWiseTotalSalary
+from department d inner join employee e
+on d.id=e.departmentId
+group by e.departmentId
+having sum(e.employeeSalary)>=ALL(select sum(employeeSalary) from employee group by departmentId);
+
+
+
+
+

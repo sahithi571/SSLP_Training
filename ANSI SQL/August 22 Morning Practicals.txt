@@ -1,0 +1,67 @@
+select * from batch;
+select * from bank;
+select * from trainee;
+
+/* Display records from Batch table in ascending order by location */
+select * from batch order by batch_location;
+
+/* Display data from Batch table in descending order by Batch owner name */
+select * from batch order by batch_owner desc;
+
+/* Display records from Batch table in ascending order by location and then in descending manner by batch code */
+select * from batch order by batch_location asc,batch_id desc;
+
+/* Display all trainees whose id is >1001 and <1004 */
+/* Way 1: Use Comparision operator */
+select * from trainee where trainee_id>1001 and trainee_id<1004;
+/*Way 2: Use Range operator */
+select * from trainee where trainee_id between 1002 and 1003;
+
+/* Display location and batch_id which are running in Cognizant but not in Chennai. Arrange data in desc manner by location */
+/* VVI: If some column data are told in question for display, the order of columns in query should be according to question and not
+according to column arrangement in table */
+select batch_location,batch_id from batch where batch_location not in('Chennai') order by batch_location desc;
+
+/* Display all the batches where the batch owner name starts with S */
+select * from batch where batch_owner like 'S%';
+
+/* Display all the batches where the batch owner name starts with S  and ends with p in asc order by batch id*/
+select * from batch where batch_owner like 'S%p' order by batch_id;
+
+/* Display all banks which is having null for phone number */
+select * from bank where phone_number is null;
+
+/* Distinct Clause: Used to filter out non redundant data  */
+/* Display the batch owner name and their city they are living */
+select distinct batch_owner,batch_location from batch;
+
+/* Display the bank_ifsc_code, phone number and branch_location from bank table. If phone number is not found
+display a string message NA [Use a column alias called phone]*/
+select bank_ifsc_code,coalesce(phone_number,'NA') as phone,branch_location from bank;
+
+/* Display the bank_ifsc_code as alias IFSC, phone number as Mobile Number: Number (example: Mobile Number: 9600197754).
+If phone number is not available display NA. [Use an alias PHONE], branch_location in capital (use alias called ADDRESS)  from
+bank table */
+select bank_ifsc_code as IFSC,concat('Mobile Number : ',ifnull(phone_number,'NA')) as PHONE,
+upper(branch_location) as ADRESS from bank;
+
+/* Display subject code (like: DN,JV etc under alias Subject_Code), batch_number(001,002 etc) under alias Batch_Number from 
+batch table */
+select left(trim(batch_id),2) as Subject_Code,right(trim(batch_id),3) as Batch_Number from batch;
+
+/* Display all batch info where length of batch owner name is >5 */
+select * from batch where length(batch_owner)>5;
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,112 @@
+Sorting Operator in SQL:
+Order By
+
+Syntax: Order by Column_name ASC/DESC
+Note: The default order is ASC
+
+Filtering clauses:
+(i) Conditional operators: > < >= <= =(Equality) <>(Not equal)
+i=10
+a=b
+(ii) Range operator: Between , Not Between
+eg: salary between 100 to 200
+
+(iii) List Operator: IN , Not IN
+eg: state IN('Chennai')
+
+(iv) String Operator: Like , Not Like
+This operator uses % wild card character to search based on beginning or ending letter
+eg: name like('s%')   sam samuel
+name like ('%s')  gomes games
+
+(v) Nullable operator: Is Null ,   Is Not Null
+
+
+Case Statements in SQL:
+This statements provide if else condition in result set
+
+example
+case
+when number%2=0 Then 'Even'
+when number%2<>0 Then 'odd'
+end
+
+
+
+Joins: These are mechanisms to display data from one or more tables based on primary-
+foreign key matching conditions.
+
+(i) Inner Join : These will be joining 2 or more tables for display provided same data exist
+between joining tables.
+
+(ii) Outer Join:
+(a) Left Outer Join:Displays all records from the table present in left side of join keyword;
+From right table if there are matching records they are displayed.[If the left table
+does not have matching record in right table they are displayed as null].
+(b) Right Outer Join:vise-versa
+
+
+(iii) Self Join: Where joining condition is applied within the same table
+
+
+Distinct Keyword: This is used to give single data from redundant result set
+
+Coalesce() or ifnull(): Checks whether there is any null value; if null value found
+replaces it with another column data or string literal only for display.
+
+String APIs or Functions():
+(i) Upper(): converts data to upper case
+(ii)Lower(): converts data to lower case
+(iii) concat(): joins 2 string values
+(iv) cast(): changes numberic data to char data
+(v) substring(column_name,starting_index,length(optional)): extracts part of string from main string
+(vi) left(column_name,length): extracts data starting from left side upto given length
+[ie always extraction starts from left side 0 index]
+(vii)right(column_name,length): vice-versa
+(viii) Length(): extracts length of string
+(ix) TRIM(): Removes spaces from left and right of data
+
+
+DateTime APIs or functions:
+(i) now(): displays current date and time
+(ii) curdate(): displays current date only
+(iii)curtime(): displays current time only
+(iv)Extract(datepart from date value)
+example: Extract(month from joining_date_column)
+(v)Month(): Extracts month from date
+(vi)Year():Extracts year
+(vii)Day():Extracts day from date
+(viii) monthname(): used to extract month value in string format
+(ix) date_diff(): displays interval (in days) between 2 date values
+(x)date_add(): adds interval to date values
+(xi) date_format(): displays date value into client specified format
+Note: The default date value in mysql is yyyy-MM-dd
+https://www.w3schools.com/sql/func_mysql_date_format.asp
+
+Aggregate Functions : 
+Max()
+Min()
+Sum()
+Avg() 
+Count()
+
+Group By Clause: Works with aggregate functions to group similar data values for result
+Having Clause is used in a query which has group by clause to filter aggregate result
+
+Round(data,decimals to be rounded)
+round(1.3478,2)=1.35
+
+Subquery:
+It is one select statement under another select statement.
+Subquery contains 2 parts:
+(i) Inner Select which is for decision making
+(ii) Outer Select which is for output
+
+Outer select will provide output depending upon what is returned by inner select.
+
+Subquery Operators:
+(i) Comaprision Operator
+(ii) IN , Not IN
+(iii) AND , ANY
+
+
