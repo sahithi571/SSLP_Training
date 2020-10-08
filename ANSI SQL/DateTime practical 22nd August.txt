@@ -1,0 +1,43 @@
+select * from batch;
+select * from bank;
+select * from trainee;
+
+/* DateTime Functions */
+/* Display System Date and Time */
+select now();
+/* Display Current Date Only */
+select curdate();
+/* Extract() method to extract day,month and year value from a date */
+select extract(month from curdate()) as month_info,extract(year from curdate()) as year_info,extract(day from curdate()) as day_info;
+/* or */
+select day(curdate()) as day_info;
+select month(curdate()) as month_info;
+select year(curdate()) as year_info;
+
+/* Extract month name in string format */
+select monthname(curdate()) as month_string;
+
+/* Display all batch info which have started in the month of december. Arrange data in desc manner by batch id */
+select * from batch where monthname(start_date) IN('December') order by batch_id desc;
+
+/* Due to some unexpected situation the end date of all DN batches got extended by 10 days. Display the batch_id, end_date as proposed_end_date,
+actual_end_date from batch table */
+select batch_id,end_date as proposed_end_date,date_add(end_date,interval 10 day) as actual_end_date
+from batch where batch_id like 'DN%';
+
+/* Display batch_id,start_date,end_date and training_duration [Days of Training: value]
+duration=end_date-start_date */
+select batch_id,start_date,end_date,
+concat('Days of Training: ',datediff(end_date,start_date)) as training_duration
+from batch;
+
+/* display the batch_id and formatted start_date of the batch.
+Output example: Saturday,22nd August,2020 */
+select batch_id,date_format(start_date,'%W,%D %M,%Y') as starting_date from batch;
+
+
+
+
+
+
+
