@@ -1,0 +1,42 @@
+create table department
+(
+Id int primary key,
+departmentName varchar(100) not null
+);
+
+insert into department values
+(1,'Admin'),
+(2,'Finance'),
+(3,'IT'),
+(4,'Marketing');
+
+create table employee
+(
+Id int primary key,
+employeeName varchar(100),
+departmentId int,
+employeeSalary float,
+constraint fk_DeptId foreign key(departmentID) references department(Id) on update cascade on delete cascade
+);
+
+insert into employee values
+(1001,'Sam',1,24000),
+(1002,'Joe',3,45000),
+(1003,'Peter',2,60000),
+(1004,'Merry',2,30000),
+(1005,'Kelvin',1,27000),
+(1006,'Thomas',3,17000);
+
+create table salaryTransaction
+(
+transactionId int primary key,
+bankName varchar(100) not null,
+departmentId int,
+constraint fk_BankDeptId foreign key(departmentID) references department(Id) on update cascade on delete cascade
+);
+
+insert into salaryTransaction values
+(12345,'ICICI',1),
+(45688,'HDFC',2),
+(78964,'SBI',4);
+
